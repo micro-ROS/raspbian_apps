@@ -13,7 +13,7 @@ add_executable(${PROJECT_NAME} main.c)
 ament_target_dependencies(${PROJECT_NAME}
   rcl
   rmw_microxrcedds
-  std_msgs
+  sensor_msgs
   )
 
 target_link_libraries(${PROJECT_NAME}

@@ -1,6 +1,6 @@
 #include <rcl/rcl.h>
 #include <rcl/error_handling.h>
-#include <std_msgs/msg/float32.h>
+#include <sensor_msgs/msg/laser_echo.h>
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -32,14 +32,15 @@ int main(int argc, char const * const * argv)
   rcl_publisher_options_t publisher_opts = rcl_publisher_get_default_options();
   rcl_publisher_t publisher = rcl_get_zero_initialized_publisher();
   RCCHECK(rcl_publisher_init(
-      &publisher,&node, ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Float32),
-      "std_msgs_msg_Float32_Sequence", &publisher_opts))
+      &publisher, &node, ROSIDL_GET_MSG_TYPE_SUPPORT(sensor_msgs, msg, LaserEcho),
+      "Float__Sequence", &publisher_opts))
 
-  std_msgs__msg__Float32 sensors_data_array[2];
-  std_msgs__msg__Float32__Sequence sensors_data;
-  sensors_data.data = sensors_data_array;
-  sensors_data.capacity = 2;
-  sensors_data.size = 2;
+
+  float sensor_data[2];
+  sensor_msgs__msg__LaserEcho sensor_topic;
+  sensor_topic.echoes.capacity = 2;
+  sensor_topic.echoes.size = 2;
+  sensor_topic.echoes.data = sensor_data;
 
   char * path = "/dev/i2c-1";
   int fd = open(path, O_RDWR);
@@ -60,19 +61,19 @@ int main(int argc, char const * const * argv)
     write(fd, temperature_command, 1);
     sleep(1);
     read(fd, data, 2);
-    sensors_data_array[0].data = (((data[0] * 256 + data[1]) * 175.72) / 65536.0) - 46.85;
+    sensor_data[0] = (((data[0] * 256 + data[1]) * 175.72) / 65536.0) - 46.85;
 
     write(fd, humidity_command, 1);
     sleep(1);
     read(fd, data, 2);
-    sensors_data_array[1].data = (((data[0] * 256 + data[1]) * 125.0) / 65536.0) - 6.0;
+    sensor_data[1] = (((data[0] * 256 + data[1]) * 125.0) / 65536.0) - 6.0;
 
-    rc = rcl_publish(&publisher, (const void*)&sensors_data, NULL);
+    rc = rcl_publish(&publisher, (const void*)&sensor_topic, NULL);
     if (RCL_RET_OK == rc)
     {
       printf("Published:\n");
-      printf("  temperature: %.2f C\n", sensors_data_array[0]);
-      printf("  humidity: %.2f RH\n", sensors_data_array[1]);
+      printf("  temperature: %.2f C\n", sensor_data[0]);
+      printf("  humidity: %.2f RH\n", sensor_data[1]);
     }
 
   } while (RCL_RET_OK == rc);
