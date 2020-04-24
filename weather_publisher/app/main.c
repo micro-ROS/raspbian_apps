@@ -53,7 +53,7 @@ int main(int argc, char const * const * argv)
   ioctl(fd, I2C_SLAVE, TEMPERATURE_SENSOR_ADDR);
 
   char const temperature_command[1] = {TEMPERATURE_MEASURE_COMMAND};
-  char const humidity_command[1] = {TEMPERATURE_MEASURE_COMMAND};
+  char const humidity_command[1] = {HUMIDITY_MEASURE_COMMAND};
   char data[2];
 
   rcl_ret_t rc;
