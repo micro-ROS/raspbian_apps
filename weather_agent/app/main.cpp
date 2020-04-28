@@ -7,7 +7,7 @@
 
 int main(int argc, char** argv)
 {
-    uint16_t port = stoi(argv[1]);
+    uint16_t port = std::stoi(argv[1]);
     char* device = argv[2];
 
     struct termios attr;
