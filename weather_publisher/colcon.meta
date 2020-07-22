@@ -10,6 +10,17 @@
                 "-DRMW_UXRCE_MAX_CLIENTS=0",
                 "-DRMW_UXRCE_MAX_HISTORY=4"
             ]
-        }
+        },
+        "rosidl_typesupport": {
+            "cmake-args": [
+                "-DROSIDL_TYPESUPPORT_SINGLE_TYPESUPPORT=ON"
+            ]
+        },
+        "tracetools": {
+            "cmake-args": [
+                "-DTRACETOOLS_DISABLED=ON",
+                "-DTRACETOOLS_STATUS_CHECKING_TOOL=OFF"
+            ]
+        },
     }
 }
