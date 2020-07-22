@@ -27,3 +27,7 @@ repositories:
     type: git
     url: https://github.com/ros2/tinydir_vendor.git
     version: master
+  uros/rosidl_typesupport:
+    type: git
+    url: https://github.com/micro-ROS/rosidl_typesupport.git
+    version: foxy
