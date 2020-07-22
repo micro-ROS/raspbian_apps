@@ -31,3 +31,7 @@ repositories:
     type: git
     url: https://github.com/micro-ROS/rosidl_typesupport.git
     version: foxy
+  uros/tracetools:
+    type: git
+    url: https://gitlab.com/micro-ROS/ros_tracing/ros2_tracing.git
+    version: foxy
