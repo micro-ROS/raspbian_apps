@@ -4,11 +4,27 @@
 
 #include <termios.h>
 #include <fcntl.h>
+#include <fstream>
 
 int main(int argc, char** argv)
 {
-    uint16_t port = std::stoi(argv[1]);
-    char* device = argv[2];
+    // TODO: use args for UDP port?
+    uint16_t port = 8888;
+    std::string port_name;
+
+    // Read serial port from file
+    std::ifstream port_file("/tmp/uros_port.log");
+
+    if (port_file.is_open())
+    {
+        getline (port_file, port_name);
+        port_file.close();
+    }
+    else
+    {
+        std::cout << "Bridge script not initialized" << std::endl;
+        return -1;
+    }
 
     struct termios attr;
 
@@ -40,7 +56,7 @@ int main(int argc, char** argv)
     attr.c_oflag &= unsigned(~OPOST);   // Set raw output.
 
     /* Setting OUTPUT CHARACTERS. */
-    attr.c_cc[VMIN] = 10;
+    attr.c_cc[VMIN] = 1;
     attr.c_cc[VTIME] = 1;
 
     /* Setting baudrate. */
@@ -52,7 +68,7 @@ int main(int argc, char** argv)
     agent_udp4.set_verbose_level(6);
     agent_udp4.start();
 
-    eprosima::uxr::TermiosAgent agent_serial(device, O_RDWR | O_NOCTTY, attr, 0, eprosima::uxr::Middleware::Kind::CED);
+    eprosima::uxr::TermiosAgent agent_serial(port_name.c_str(), O_RDWR | O_NOCTTY, attr, 0, eprosima::uxr::Middleware::Kind::CED);
     agent_serial.set_verbose_level(6);
     agent_serial.start();
 
