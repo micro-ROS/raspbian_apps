@@ -1,4 +1,5 @@
 #include <rcl/rcl.h>
+#include <rclc/rclc.h>
 #include <rcl/error_handling.h>
 #include <sensor_msgs/msg/laser_echo.h>
 
