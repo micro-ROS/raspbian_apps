@@ -1,6 +1,7 @@
 #include <uxr/agent/transport/udp/UDPv4AgentLinux.hpp>
 #include <uxr/agent/transport/serial/TermiosAgentLinux.hpp>
 #include <uxr/agent/transport/serial/baud_rate_table_linux.h>
+#include <uxr/agent/transport/endpoint/SerialEndPoint.hpp>
 
 #include <termios.h>
 #include <fcntl.h>
@@ -26,8 +27,9 @@ int main(int argc, char** argv)
         return -1;
     }
 
-    struct termios attr;
+    struct termios attr = {};
 
+    /* Setting CONTROL OPTIONS. */
     attr.c_cflag |= unsigned(CREAD);    // Enable read.
     attr.c_cflag |= unsigned(CLOCAL);   // Set local mode.
     attr.c_cflag &= unsigned(~PARENB);  // Disable parity.
@@ -80,7 +82,15 @@ int main(int argc, char** argv)
 
     agent_serial.create_client(key, session, mtu, eprosima::uxr::Middleware::Kind::CED, result);
 
-    std::cout << "Create session result: " << result << std::endl;
+	if (eprosima::uxr::Agent::OpResult::OK != result)
+	{
+		std::cout << "Create session failed, error code: " << result << std::endl;
+		return -1;
+	}
+    
+
+    const eprosima::uxr::SerialEndPoint endpoint = eprosima::uxr::SerialEndPoint(0);
+    agent_serial.establish_session(endpoint, key, session);
 
     // Create crazyflie entities
     uint16_t participant_key = 0x01;
@@ -105,7 +115,11 @@ int main(int argc, char** argv)
             eprosima::uxr::Agent::REUSE_MODE,
             result);
 
-    std::cout << "Create participant result: " << result << std::endl;
+	if (eprosima::uxr::Agent::OpResult::OK != result)
+	{
+		std::cout << "Create participant failed, error code: " << result << std::endl;
+		return -1;
+	}
 
     agent_serial.create_topic_by_xml(
             key,
@@ -115,7 +129,11 @@ int main(int argc, char** argv)
             eprosima::uxr::Agent::REUSE_MODE,
             result);
 
-    std::cout << "Create topic result: " << result << std::endl;
+	if (eprosima::uxr::Agent::OpResult::OK != result)
+	{
+		std::cout << "Create topic failed, error code: " << result << std::endl;
+		return -1;
+	}
 
     agent_serial.create_subscriber_by_xml(
             key,
@@ -125,7 +143,11 @@ int main(int argc, char** argv)
             eprosima::uxr::Agent::REUSE_MODE,
             result);
 
-    std::cout << "Create subscriber result: " << result << std::endl;
+	if (eprosima::uxr::Agent::OpResult::OK != result)
+	{
+		std::cout << "Create subscriber failed, error code: " << result << std::endl;
+		return -1;
+	}
 
     agent_serial.create_datareader_by_xml(
             key,
@@ -135,7 +157,11 @@ int main(int argc, char** argv)
             eprosima::uxr::Agent::REUSE_MODE,
             result);
 
-    std::cout << "Datareader result: " << result << std::endl;
+	if (eprosima::uxr::Agent::OpResult::OK != result)
+	{
+		std::cout << "Create Datareader failed, error code: " << result << std::endl;
+		return -1;
+	}
 
     while (true) { std::this_thread::sleep_for(std::chrono::seconds(1)); }
 
