@@ -3,7 +3,3 @@ repositories:
     type: git
     url: https://github.com/microROS/micro-ROS-Agent.git
     version: galactic
-  eProsima/Micro-XRCE-DDS-Agent:
-    type: git
-    url: https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
-    version: foxy

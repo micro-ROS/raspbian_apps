@@ -1,4 +1,5 @@
 #include <rcl/rcl.h>
+#include <rclc/rclc.h>
 #include <rcl/error_handling.h>
 #include <sensor_msgs/msg/laser_echo.h>
 
@@ -18,23 +19,21 @@
 
 int main(int argc, char const * const * argv)
 {
-  rcl_init_options_t options = rcl_get_zero_initialized_init_options();
-  RCCHECK(rcl_init_options_init(&options, rcl_get_default_allocator()))
+  rcl_allocator_t allocator = rcl_get_default_allocator();
+  rclc_support_t support;
 
-  rcl_context_t context = rcl_get_zero_initialized_context();
-  RCCHECK(rcl_init(argc, argv, &options, &context))
+  RCCHECK(rclc_support_init(&support, 0, NULL, &allocator));
 
-  rcl_node_options_t node_opts = rcl_node_get_default_options();
+  // Create node
+  rcl_node_t node;
+  RCCHECK(rclc_node_init_default(&node, "weather_publisher", "", &support));
 
-  rcl_node_t node = rcl_get_zero_initialized_node();
-  RCCHECK(rcl_node_init(&node, "weather_publisher", "", &context, &node_opts))
-
-  rcl_publisher_options_t publisher_opts = rcl_publisher_get_default_options();
-  rcl_publisher_t publisher = rcl_get_zero_initialized_publisher();
-  RCCHECK(rcl_publisher_init(
-      &publisher, &node, ROSIDL_GET_MSG_TYPE_SUPPORT(sensor_msgs, msg, LaserEcho),
-      "Float__Sequence", &publisher_opts))
-
+  rcl_publisher_t publisher;
+  RCCHECK(rclc_publisher_init_best_effort(
+      &publisher, 
+      &node, 
+      ROSIDL_GET_MSG_TYPE_SUPPORT(sensor_msgs, msg, LaserEcho),
+      "Float__Sequence"));
 
   float sensor_data[2];
   sensor_msgs__msg__LaserEcho sensor_topic;
