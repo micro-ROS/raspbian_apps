@@ -14,7 +14,7 @@ int main(int argc, char** argv)
     std::string port_name;
 
     // Read serial port from file
-    std::ifstream port_file("/tmp/uros_port.log");
+    std::ifstream port_file("/tmp/uros/port.log");
 
     if (port_file.is_open())
     {
@@ -74,7 +74,7 @@ int main(int argc, char** argv)
     agent_serial.set_verbose_level(6);
     agent_serial.start();
 
-    // Create crazyflie sesion 
+    // Create crazyflie sesion
     uint32_t key = 0x12345678;
     uint8_t session = 0x81;
     uint16_t mtu = 30;
@@ -87,7 +87,6 @@ int main(int argc, char** argv)
 		std::cout << "Create session failed, error code: " << result << std::endl;
 		return -1;
 	}
-    
 
     const eprosima::uxr::SerialEndPoint endpoint = eprosima::uxr::SerialEndPoint(0);
     agent_serial.establish_session(endpoint, key, session);
@@ -97,7 +96,7 @@ int main(int argc, char** argv)
     uint16_t topic_key = 0x01;
     uint16_t subscriber_key = 0x01;
     uint16_t datawriter_key = 0x01;
-    
+
     std::string topic_name = "Float__Sequence";
 
     std::string participant_xml = "";
