@@ -7,7 +7,7 @@ find_package(microxrcedds_client REQUIRED)
 find_package(rcl REQUIRED)
 find_package(rclc REQUIRED)
 find_package(rmw_microxrcedds REQUIRED)
-find_package(sensor_msgs REQUIRED)
+find_package(std_msgs REQUIRED)
 
 add_executable(${PROJECT_NAME} main.c)
 
@@ -15,7 +15,7 @@ ament_target_dependencies(${PROJECT_NAME}
   rcl
   rclc
   rmw_microxrcedds
-  sensor_msgs
+  std_msgs
   )
 
 target_link_libraries(${PROJECT_NAME}

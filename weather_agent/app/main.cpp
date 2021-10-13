@@ -97,7 +97,7 @@ int main(int argc, char** argv)
     uint16_t subscriber_key = 0x01;
     uint16_t datawriter_key = 0x01;
 
-    std::string topic_name = "Float__Sequence";
+    std::string topic_name = "Sensor_data";
 
     std::string participant_xml = "";
     std::string topic_xml = "rt/" + topic_name;

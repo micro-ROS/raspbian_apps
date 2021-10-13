@@ -12,7 +12,7 @@
 
   <depend>rcl</depend>
   <depend>rclc</depend>
-  <depend>sensor_msgs</depend>
+  <depend>std_msgs</depend>
   <depend>rmw_microxrcedds</depend>
 
   <export>
