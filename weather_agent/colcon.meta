@@ -2,7 +2,8 @@
     "names": {
         "microxrcedds_agent": {
             "cmake-args": [
-                "-DUAGENT_FAST_PROFILE=OFF"
+                "-DUAGENT_FAST_PROFILE=OFF",
+                "-DUAGENT_USE_SYSTEM_FASTCDR=OFF"
             ]
         },
     }

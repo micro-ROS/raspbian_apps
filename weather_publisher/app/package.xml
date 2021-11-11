@@ -11,6 +11,7 @@
   <buildtool_depend>ament_cmake</buildtool_depend>
 
   <depend>rcl</depend>
+  <depend>rclc</depend>
   <depend>sensor_msgs</depend>
   <depend>rmw_microxrcedds</depend>
 
