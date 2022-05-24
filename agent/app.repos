@@ -2,8 +2,8 @@ repositories:
   uros/micro-ros-Agent:
     type: git
     url: https://github.com/microROS/micro-ROS-Agent.git
-    version: main
+    version: humble
   eProsima/Micro-XRCE-DDS-Agent:
     type: git
     url: https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
-    version: foxy
+    version: ros2

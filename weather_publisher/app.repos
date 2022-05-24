@@ -2,36 +2,36 @@ repositories:
   eProsima/Micro-CDR:
     type: git
     url: https://github.com/eProsima/micro-CDR.git
-    version: foxy
+    version: ros2
   eProsima/Micro-XRCE-DDS-Client:
     type: git
     url: https://github.com/eProsima/Micro-XRCE-DDS-Client.git
-    version: foxy
+    version: ros2
   uros/rcl:
     type: git
     url: https://github.com/micro-ROS/rcl
-    version: master
+    version: humble
   uros/rcutils:
     type: git
     url: https://github.com/micro-ROS/rcutils
-    version: master
+    version: humble
   uros/rmw_microxrcedds:
     type: git
     url: https://github.com/micro-ROS/rmw-microxrcedds.git
-    version: main
+    version: humble
   uros/rosidl_typesupport_microxrcedds:
     type: git
     url: https://github.com/micro-ROS/rosidl_typesupport_microxrcedds.git
-    version: main
+    version: humble
   ros2/tinydir_vendor:
     type: git
     url: https://github.com/ros2/tinydir_vendor.git
-    version: master
+    version: humble
   uros/rosidl_typesupport:
     type: git
     url: https://github.com/micro-ROS/rosidl_typesupport.git
-    version: master
+    version: humble
   uros/tracetools:
     type: git
     url: https://gitlab.com/micro-ROS/ros_tracing/ros2_tracing.git
-    version: master
+    version: humble
