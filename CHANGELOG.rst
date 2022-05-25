@@ -2,8 +2,8 @@
 Changelog for package micro_ros_raspbian_apps
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+3.0.0 (2022-05-25)
+------------------
 * Update to humble (`#18 <https://github.com/micro-ROS/raspbian_apps/issues/18>`_)
 * multichange tool (`#11 <https://github.com/micro-ROS/raspbian_apps/issues/11>`_) (`#13 <https://github.com/micro-ROS/raspbian_apps/issues/13>`_)
 * Initial Rolling
