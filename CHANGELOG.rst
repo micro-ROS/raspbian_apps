@@ -2,8 +2,8 @@
 Changelog for package micro_ros_raspbian_apps
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.0.0 (2022-05-25)
+------------------
 * Modify file from bridge (`#15 <https://github.com/micro-ROS/raspbian_apps/issues/15>`_)
 * Update agent and weather publisher (`#14 <https://github.com/micro-ROS/raspbian_apps/issues/14>`_)
 * multichange tool (`#11 <https://github.com/micro-ROS/raspbian_apps/issues/11>`_)
