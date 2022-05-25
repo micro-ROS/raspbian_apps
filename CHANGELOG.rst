@@ -2,8 +2,8 @@
 Changelog for package micro_ros_raspbian_apps
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+1.0.0 (2022-05-25)
+------------------
 * Update with galactic (`#17 <https://github.com/micro-ROS/raspbian_apps/issues/17>`_)
 * multichange tool (`#11 <https://github.com/micro-ROS/raspbian_apps/issues/11>`_) (`#12 <https://github.com/micro-ROS/raspbian_apps/issues/12>`_)
 * Update colcon.meta (`#10 <https://github.com/micro-ROS/raspbian_apps/issues/10>`_)
