@@ -2,6 +2,12 @@
 Changelog for package micro_ros_raspbian_apps
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Update rolling repositories (`#23 <https://github.com/micro-ROS/raspbian_apps/issues/23>`_)
+* Update rolling sources (`#20 <https://github.com/micro-ROS/raspbian_apps/issues/20>`_)
+* Add rosidl_core (`#19 <https://github.com/micro-ROS/raspbian_apps/issues/19>`_)
+
 4.0.0 (2022-05-25)
 ------------------
 * multichange tool (`#11 <https://github.com/micro-ROS/raspbian_apps/issues/11>`_) (`#13 <https://github.com/micro-ROS/raspbian_apps/issues/13>`_)
