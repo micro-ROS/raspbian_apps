@@ -2,6 +2,9 @@
 Changelog for package micro_ros_raspbian_apps
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 3.0.0 (2022-05-25)
 ------------------
 * Update to humble (`#18 <https://github.com/micro-ROS/raspbian_apps/issues/18>`_)
