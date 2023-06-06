@@ -2,8 +2,8 @@
 Changelog for package micro_ros_raspbian_apps
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+4.0.1 (2023-06-06)
+------------------
 * Iron release (`#22 <https://github.com/micro-ROS/raspbian_apps/issues/22>`_)
 * Update rolling sources (`#20 <https://github.com/micro-ROS/raspbian_apps/issues/20>`_)
 * Add rosidl_core (`#19 <https://github.com/micro-ROS/raspbian_apps/issues/19>`_)
