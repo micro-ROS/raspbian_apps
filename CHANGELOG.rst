@@ -2,8 +2,8 @@
 Changelog for package micro_ros_raspbian_apps
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+5.0.1 (2024-05-31)
+------------------
 * Update repos (`#21 <https://github.com/micro-ROS/raspbian_apps/issues/21>`_)
 * Contributors: Antonio Cuadros
 
