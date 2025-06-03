@@ -10,10 +10,10 @@ find_package(sensor_msgs REQUIRED)
 
 add_executable(${PROJECT_NAME} main.c)
 
-ament_target_dependencies(${PROJECT_NAME}
-  rcl
-  rmw_microxrcedds
-  sensor_msgs
+target_link_libraries(${PROJECT_NAME}
+  rcl::rcl
+  ${rmw_microxrcedds_LIBRARIES}
+  ${sensor_msgs_TARGETS}
   )
 
 target_link_libraries(${PROJECT_NAME}
